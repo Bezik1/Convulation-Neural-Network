@@ -43,15 +43,6 @@ class ConvulationNetwork():
     def __init__(self, filter, pool_size) -> None:
         self.layers = [
             ConvulationLayer(filter),
-            MaxPoolingLayer(pool_size),
-            ConvulationLayer(filter),
-            MaxPoolingLayer(pool_size),
-            MaxPoolingLayer(pool_size),
-            ConvulationLayer(filter),
-            MaxPoolingLayer(pool_size),
-            ConvulationLayer(filter),
-            MaxPoolingLayer(pool_size),
-            MaxPoolingLayer(pool_size),
         ]
     
     def forward(self, input_image):
@@ -63,9 +54,9 @@ class ConvulationNetwork():
         
         return output
 
-filter = np.array([[1, 2, 1],
-                    [2, 4, 2],
-                    [1, 2, 1]])
+filter = np.array([[0, 0, 0],
+                    [1, 5, 1],
+                    [0, 0, 0]])
 
 image = np.array(Image.open('tests/image.jpg'))
 model = ConvulationNetwork(filter, 2)

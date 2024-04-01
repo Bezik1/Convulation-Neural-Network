@@ -5,9 +5,13 @@ import numpy as np
 
 (train_X, train_y), (test_X, test_y) = mnist.load_data()
 
-model = ConvulationNeuralNetwork()
+load_model = False
+save_model = True
+
+model = ConvulationNeuralNetwork(load_model, save_model)
 
 model.train(train_X[:1000], train_y[:1000], test_X[:1000], test_y[:1000])
+model.test(test_X[:1000], test_y[:1000])
 
 BASE_TEST_PATH = "data/manual_test"
 TEST_PATHS = [
